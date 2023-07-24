@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { ActivityIndicator, ScrollView, StatusBar, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import styles from "./styles";
+
 import { COLORS } from "../../components/Themes";
 import InputHeader from "../../components/InputHeader";
+
+import { fetchNowPlayingMovies } from "../../utils/fetchNowPlayingMovies";
+import { fetchPopularMovies } from "../../utils/fetchPopularMovies";
+import { fetchUpcomingMovies } from "../../utils/fetchUpcomingMovies";
+
+import styles from "./styles";
 
 type Props = {};
 
@@ -14,6 +20,23 @@ const Home = function ({}: Props) {
     const [popularMoviesList, setPopularMoviesList] = useState<any>(undefined);
     const [upcomingMoviesList, setUpcomingMoviesList] =
         useState<any>(undefined);
+
+    useEffect(function () {
+        (async function () {
+            const nowPlayingMovies = await fetchNowPlayingMovies();
+            setNowPlayingMoviesList([
+                { id: "dummy1" },
+                ...nowPlayingMovies.results,
+                { id: "dummy2" },
+            ]);
+
+            const popularMovies = await fetchPopularMovies();
+            setPopularMoviesList(popularMovies.results);
+
+            const upComingMovies = await fetchUpcomingMovies();
+            setUpcomingMoviesList(upComingMovies);
+        })();
+    }, []);
 
     const handleSearch = function () {
         navigation.navigate("Search");
