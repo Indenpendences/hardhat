@@ -60,7 +60,14 @@ const Home = function ({}: Props) {
         );
     }
 
-    return <View></View>;
+    return (
+        <ScrollView style={styles.container} bounces={false}>
+            <StatusBar hidden />
+            <View style={styles.InputHeaderContainer}>
+                <InputHeader onSearch={handleSearch} />
+            </View>
+        </ScrollView>
+    );
 };
 
 export default Home;
