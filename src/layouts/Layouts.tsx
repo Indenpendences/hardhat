@@ -6,7 +6,7 @@ import Home from "../screens/Home";
 import Search from "../screens/Search";
 import UserAccount from "../screens/UserAccount";
 import Ticket from "../screens/Ticket";
-import { COLORS, FONTSIZE, SPACING } from "../components/Themes/theme";
+import { COLORS, FONTSIZE, SPACING } from "../components/Themes";
 import Feather from "react-native-vector-icons/Feather";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";

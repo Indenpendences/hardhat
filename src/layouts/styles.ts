@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SPACING } from "../components/Themes/theme";
+import { COLORS, SPACING } from "../components/Themes";
 
 const styles = StyleSheet.create({
     activeTabBackground: {
