@@ -4,7 +4,7 @@ import { View } from "react-native";
 type Props = {};
 
 const Search = function ({}: Props) {
-    return;
+    return <View></View>;
 };
 
 export default Search;

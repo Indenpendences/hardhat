@@ -1,25 +1,37 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "../screens/Home";
+import Layout from "../layouts";
 import MovieDetails from "../screens/MovieDetails";
-import Search from "../screens/Search";
 import SeatBooking from "../screens/SeatBooking";
-import UserAccount from "../screens/UserAccount";
-
-import { COLORS, FONTSIZE, SPACING } from "../components/Themes/theme";
 
 type Props = {};
 const Navigations = function ({}: Props) {
-    const Tab = createBottomTabNavigator();
+    const Stack = createNativeStackNavigator();
     return (
-        <Tab.Navigator initialRouteName="Home">
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="MovieDetails" component={MovieDetails} />
-            <Tab.Screen name="UserAccount" component={UserAccount} />
-            <Tab.Screen name="Search" component={Search} />
-            <Tab.Screen name="SeatBooking" component={SeatBooking} />
-        </Tab.Navigator>
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+                <Stack.Screen
+                    name="Tab"
+                    component={Layout}
+                    options={{ animation: "default" }}
+                />
+
+                <Stack.Screen
+                    name="MovieDetails"
+                    component={MovieDetails}
+                    options={{ animation: "slide_from_right" }}
+                />
+
+                <Stack.Screen
+                    name="SeatBooking"
+                    component={SeatBooking}
+                    options={{ animation: "slide_from_bottom" }}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 

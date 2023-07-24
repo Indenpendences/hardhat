@@ -4,7 +4,7 @@ import { View } from "react-native";
 type Props = {};
 
 const SeatBooking = function ({}: Props) {
-    return;
+    return <View></View>;
 };
 
 export default SeatBooking;

@@ -1,18 +1,9 @@
 import React from "react";
-import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import Navigations from "./src/navigations";
 
 type Props = {};
 const App = function ({}: Props) {
-    const Stack = createStackNavigator();
-    return(
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Tab" component={}/>
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+    return <Navigations />;
 };
 
 export default App;
