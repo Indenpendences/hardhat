@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { COLORS } from "../../components/Themes";
 import InputHeader from "../../components/InputHeader";
+import CategoryHeader from "../../components/CategoryHeader/CategoryHeader";
 
 import { fetchNowPlayingMovies } from "../../utils/fetchNowPlayingMovies";
 import { fetchPopularMovies } from "../../utils/fetchPopularMovies";
@@ -66,6 +67,9 @@ const Home = function ({}: Props) {
             <View style={styles.InputHeaderContainer}>
                 <InputHeader onSearch={handleSearch} />
             </View>
+            <CategoryHeader title="Now Playing" />
+            <CategoryHeader title="Popular" />
+            <CategoryHeader title="Upcoming" />
         </ScrollView>
     );
 };
