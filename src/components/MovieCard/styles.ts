@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
         borderRadius: BORDERRADIUS.radius_20,
     },
     textTitle: {
-        fontFamily: FONTFAMILY.poppins_regular,
         fontSize: FONTSIZE.size_24,
         color: COLORS.White,
         textAlign: "center",
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
         color: COLORS.Yellow,
     },
     voteText: {
-        fontFamily: FONTFAMILY.poppins_medium,
         fontSize: FONTSIZE.size_14,
         color: COLORS.White,
     },
@@ -49,7 +47,6 @@ const styles = StyleSheet.create({
         borderRadius: BORDERRADIUS.radius_25,
     },
     genreText: {
-        fontFamily: FONTFAMILY.poppins_regular,
         fontSize: FONTSIZE.size_10,
         color: COLORS.WhiteRGBA75,
     },
