@@ -11,8 +11,9 @@ import { useNavigation } from "@react-navigation/native";
 
 import { COLORS } from "../../components/Themes";
 import InputHeader from "../../components/InputHeader";
-import CategoryHeader from "../../components/CategoryHeader/CategoryHeader";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import CategoryHeader from "../../components/CategoryHeader";
+import MovieCard from "../../components/MovieCard";
+import SubMovieCard from "../../components/SubMovieCard";
 
 import { fetchNowPlayingMovies } from "../../utils/fetchNowPlayingMovies";
 import { fetchPopularMovies } from "../../utils/fetchPopularMovies";
@@ -44,7 +45,7 @@ const Home = function ({}: Props) {
             setPopularMoviesList(popularMovies.results);
 
             const upComingMovies = await fetchUpcomingMovies();
-            setUpcomingMoviesList(upComingMovies);
+            setUpcomingMoviesList(upComingMovies.results);
         })();
     }, []);
 
@@ -130,7 +131,67 @@ const Home = function ({}: Props) {
                 }}
             />
             <CategoryHeader title="Popular" />
+            <FlatList
+                data={popularMoviesList}
+                keyExtractor={function (item: any) {
+                    return item.id;
+                }}
+                horizontal
+                showsVerticalScrollIndicator={false}
+                bounces={false}
+                contentContainerStyle={styles.containerGap36}
+                renderItem={function ({ item, index }) {
+                    return (
+                        <SubMovieCard
+                            shoudlMarginatedAtEnd={true}
+                            shouldMarginatedAround={true}
+                            onCard={function () {
+                                navigation.push("MovieDetails", {
+                                    movieId: item.id,
+                                });
+                            }}
+                            cardWidth={Dimensions.get("window").width / 3}
+                            isFirst={index == 0 ? true : false}
+                            isLast={
+                                index == upcomingMoviesList?.length - 1
+                                    ? true
+                                    : false
+                            }
+                            title={item.original_title}
+                            imagePath={baseImagePath("w342", item.poster_path)}
+                        />
+                    );
+                }}
+            />
             <CategoryHeader title="Upcoming" />
+            <FlatList
+                data={upcomingMoviesList}
+                keyExtractor={(item: any) => item.id}
+                horizontal
+                bounces={false}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.containerGap36}
+                renderItem={({ item, index }) => (
+                    <SubMovieCard
+                        shoudlMarginatedAtEnd={true}
+                        shouldMarginatedAround={true}
+                        onCard={() => {
+                            navigation.push("MovieDetails", {
+                                movieid: item.id,
+                            });
+                        }}
+                        cardWidth={Dimensions.get("window").width / 3}
+                        isFirst={index == 0 ? true : false}
+                        isLast={
+                            index == upcomingMoviesList?.length - 1
+                                ? true
+                                : false
+                        }
+                        title={item.original_title}
+                        imagePath={baseImagePath("w342", item.poster_path)}
+                    />
+                )}
+            />
         </ScrollView>
     );
 };
