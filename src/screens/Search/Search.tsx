@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { View, StatusBar, FlatList, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { baseImagePath, searchMovies } from "../../api";
-import styles from "./styles";
 import SubMovieCard from "../../components/SubMovieCard";
 import InputHeader from "../../components/InputHeader";
 import { SPACING } from "../../components/Themes";
+
+import { baseImagePath, searchMovies } from "../../api";
+import styles from "./styles";
+
 type Props = {};
 
 const Search = function ({}: Props) {
