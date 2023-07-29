@@ -16,6 +16,8 @@ const movieCastDetails = (id: number) => {
     return `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apikey}`;
 };
 
+// https://api.themoviedb.org/3/movie/298618?api_key=19f84e11932abbc79e6d83f82d6d1045
+
 export {
     baseImagePath,
     nowPlayingMovies,

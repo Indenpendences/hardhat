@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { IconProps } from "react-native-vector-icons/Icon";
 
 type Props = {
     handleAction: () => void;
